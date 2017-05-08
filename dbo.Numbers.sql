@@ -5,7 +5,9 @@ SET NOCOUNT ON;
 go
 
 /*
+
 	drop table [dbo].[Numbers]
+
 */
 if object_id('[dbo].[Numbers]') is null
 begin
@@ -13,6 +15,7 @@ begin
 	create table [dbo].[Numbers]
 	(
 		[Number] int not null
+
 	)
 
 end 
@@ -232,6 +235,9 @@ begin
 			CROSS JOIN sys.all_objects AS s3
 	)
 	INSERT INTO [dbo].[Numbers]
+	(
+		[Number] 
+	)
 	SELECT [Number] = cte.[x]
     FROM   cteNumber cte
     WHERE  cte.[x] BETWEEN 1 AND @UpperLimit;
